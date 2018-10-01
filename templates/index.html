@@ -1,0 +1,84 @@
+{{template "header"}}
+			<div class="row">
+				<div class="col-md-3">
+					<div id="davoid">
+						<img class="bg" alt="void logo" src="//voidlinux.org/assets/img/void_bg.png" class="img-responsive">
+						<img class="fg" alt="void logo" src="//voidlinux.org/assets/img/void_fg.png" class="img-responsive">
+					</div>
+				</div>
+				<div class="col-md-9">
+					<h1>Packages</h1>
+					<form>
+						<div class="form-group">
+							<label class="sr-only" for="filter">Arch</label>
+							<input id="filter" class="form-control input-lg" type="text" placeholder="Package filter"/>
+						</div>
+					</form>
+					<table class="table">
+						<tbody>
+							<tr>
+								<th scope="row">arch:x86_64</th>
+								<td>matches packages for the x86_64 architecture</td>
+							</tr>
+							<tr>
+								<th scope="row">Homepage</th>
+								<td></td>
+							</tr>
+							<tr>
+								<th scope="row">License</th>
+								<td></td>
+							</tr>
+							<tr>
+								<th scope="row">Maintainer</th>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<table class="table table-striped">
+							<thead>
+								<th>Pkgname</th>
+								<th>Architecture</th>
+								<th>Description</th>
+								<th>Build date</th>
+							</thead>
+							<tbody>
+								{{range .Pkgs}}
+								<tr>
+									<th><a href="/pkg/{{.Architecture}}/{{pkgname .Pkgver}}">{{.Pkgver}}</a></th>
+									<td>{{.Architecture}}</td>
+									<td>{{.ShortDesc}}</td>
+									<td>{{.BuildDate}}</td>
+								</tr>
+								{{end}}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<nav aria-label="Page navigation">
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+							{{range .Pages}}
+							<li>{{.}}</li>
+							{{end}}
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+{{template "footer"}}

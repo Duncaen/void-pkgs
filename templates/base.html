@@ -1,0 +1,61 @@
+{{define "header"}}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Enter the void</title>
+		<link rel="icon" type="image/png" href="http://www.voidlinux.eu/assets/img/favicon.ico" />
+		<link rel="stylesheet" href="http://www.voidlinux.eu/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://www.voidlinux.eu/assets/css/screen.css">
+		<link rel="stylesheet" href="http://www.voidlinux.eu/assets/css/solarized.css">
+		<link rel="stylesheet" href="http://www.voidlinux.eu/assets/css/misc.css">
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,700' rel='stylesheet' type='text/css'>
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.voidlinux.eu/atom.xml" />
+		<link rel="alternate" href="https://flattr.com/submit/auto?user_id=xtraeme&amp;url=http://voidlinux.eu/" type="text/html" />
+	</head>
+	<body role="document">
+		<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#void-collapsed-navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-right navbar-collapse" id="void-collapsed-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="http://www.voidlinux.eu/">Home</a></li>
+						<li><a href="http://www.voidlinux.eu/news/">News</a></li>
+						<li><a href="http://www.voidlinux.eu/download/">Download</a></li>
+						<li><a href="http://www.voidlinux.eu/packages/">Packages</a></li>
+						<li><a href="http://www.voidlinux.eu/donations/">Donations</a></li>
+						<li><a href="https://wiki.voidlinux.eu">Wiki</a></li>
+						<li><a href="https://forum.voidlinux.eu">Forum</a></li>
+						<li><a href="https://github.com/voidlinux">GitHub</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+{{end}}
+
+{{define "footer"}}
+			<div class="container">
+			</div>
+			<div class="container col-md-8 col-md-offset-2">
+				<hr>
+				<footer class="footer">
+					<p class="text-center">Copyright 2008-2016 <a href="https://github.com/xtraeme">Juan RP</a> and contributors</p>
+					<p class="text-center">Linux&#174; is a registered trademark of Linus Torvalds (<a href="http://www.linuxfoundation.org/programs/legal/trademark/attribution">info</a>)</p>
+				</footer>
+			</div>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+			<script src="http://www.voidlinux.eu/assets/js/bootstrap.min.js"></script>
+		</div>
+	</body>
+</html>
+{{end}}

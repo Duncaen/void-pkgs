@@ -1,0 +1,134 @@
+{{template "header"}}
+			<div class="row">
+				<div class="col-md-3">
+					<div id="davoid">
+						<img src="//voidlinux.org/assets/img/void_bg.png" class="bg" alt="">
+						<img src="//voidlinux.org/assets/img/void_fg.png" class="fg" alt="void">
+					</div>
+				</div>
+				<div class="page-header col-md-9">
+					<h1>{{.Pkgname}}</h1>
+					<p>{{.Pkg.ShortDesc}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Metadata</h3>
+						</div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th scope="row">Description</th>
+									<td>{{.Pkg.ShortDesc}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Homepage</th>
+									<td><a href="{{.Pkg.Homepage}}">{{.Pkg.Homepage}}</a></td>
+								</tr>
+								<tr>
+									<th scope="row">License</th>
+									<td>{{.Pkg.License}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Maintainer</th>
+									<td>{{.Pkg.Maintainer}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Package data</h3>
+						</div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th scope="row">Build date</th>
+									<td>{{.Pkg.BuildDate}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Installed size</th>
+									<td>{{humanbytes .Pkg.InstalledSize}}</td>
+								</tr>
+								<tr>
+									<th scope="row">Source revisions</th>
+									<td>{{.Pkg.SourceRevisions}}</td>
+								</tr>
+								{{if .Pkg.BuildOptions}}
+								<tr>
+									<th scope="row">Build options</th>
+									<td>{{.Pkg.BuildOptions}}</td>
+								</tr>
+								{{end}}
+								{{if .Pkg.Conflicts}}
+								<tr>
+									<th scope="row">Conflicts</th>
+									<td>{{strjoin .Pkg.Conflicts ", "}}</td>
+								</tr>
+								{{end}}
+								{{if .Pkg.Provides}}
+								<tr>
+									<th scope="row">Provides</th>
+									<td>{{strjoin .Pkg.Provides ", "}}</td>
+								</tr>
+								{{end}}
+							</tbody>
+						</table>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Package files</h3>
+						</div>
+						<ul id="files" class="list-group">
+							<li class="list-group-item">/usr/bin/foo</li>
+							<li class="list-group-item">/usr/bin/foo</li>
+							<li class="list-group-item">/usr/bin/foo</li>
+							<li class="list-group-item">/usr/bin/foo</li>
+							<li class="list-group-item">/usr/bin/foo</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Links</h3>
+						</div>
+						<ul id="files" class="list-group">
+							<li class="list-group-item">
+								<a href="https://github.com/void-linux/void-packages/issues?q=is%3Aissue%20{{.Pkgname}}%20in%3Atitle">GitHub Issues</a>
+							</li>
+							<li class="list-group-item">
+								<a href="https://github.com/void-linux/void-packages/issues?q=is%3Apr%20{{.Pkgname}}%20in%3Atitle">GitHub Pull requests</a>
+							</li>
+							<li class="list-group-item">
+								<a href="{{ghtemplate .Pkg.SourceRevisions}}">GitHub Package template</a>
+							</li>
+						</ul>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Versions</h3>
+						</div>
+						<table class="table">
+							<tbody>
+								{{range $key, $val := .Versions}}
+								{{if $val}}
+								<tr>
+									<th scope="row">{{$key}}</th>
+									<td><a href="/pkg/{{$.Pkgname}}/{{$key}}">{{$val}}</a></td>
+								</tr>
+								{{else}}
+								<tr class="danger">
+									<th scope="row">{{$key}}</th>
+									<td>Not available</td>
+								</tr>
+								{{end}}
+								{{end}}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+{{template "footer"}}
